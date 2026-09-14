@@ -23,8 +23,6 @@ kanan untuk editor detail tugas.
 |---|---|
 | `index.html` | Seluruh struktur halaman dan penandaan semantik |
 | `style.css` | Semua aturan tampilan, tata letak Grid dan Flexbox, serta breakpoint responsif |
-| `preview-*.png` | Tangkapan layar tampilan desktop dan mobile |
-| `fitur-*.png` | Tangkapan layar tiap komponen |
 
 ### Elemen Semantik
 
@@ -48,8 +46,6 @@ kartu tugas, baris chip, baris tombol, dan kotak ringkasan.
 Komponen form terpisah (`<section class="formbaru">`) di bagian atas panel kiri.
 Berisi input judul, pilihan kategori, tanggal, prioritas, keterangan, dan tombol tambah.
 
-![Form tambah tugas](fitur-form.png)
-
 ### 2. Daftar Tugas
 
 Daftar tugas memakai data dummy, dipisah menjadi dua bagian: Belum Selesai dan Sudah
@@ -57,20 +53,20 @@ Selesai. Tiap kartu menampilkan checkbox bulat, label kategori berwarna, judul,
 keterangan singkat, serta chip tanggal dan prioritas. Tugas yang sudah selesai
 judulnya dicoret.
 
-![Daftar tugas](fitur-list.png)
-
 ### 3. Panel Editor Detail
 
 Panel kanan berisi editor tugas yang dipilih: judul, status, deadline, keterangan,
 tombol Simpan dan Hapus, ditambah kotak ringkasan jumlah tugas.
 
-![Panel detail](fitur-detail.png)
-
 ## Preview Todo App
 
 ### Tampilan Desktop
 
-![Tampilan desktop](preview-desktop.png)
+![Tampilan desktop](<img width="1512" height="949" alt="Screenshot 2026-09-14 at 18 48 27 1" src="https://github.com/user-attachments/assets/193faba0-44e0-4f84-9254-350c6cd97362" />
+)
+
+<img width="1512" height="949" alt="Screenshot 2026-09-14 at 18 49 00" src="https://github.com/user-attachments/assets/6cdabfaf-9e90-491d-913b-5b846dc82853" />
+
 
 ### Tampilan Mobile
 
@@ -83,5 +79,3 @@ pada form ikut ditumpuk ke bawah.
 
 1. Clone atau download repository ini
 2. Buka `index.html` memakai browser
-
-Versi online dapat dibuka lewat tautan GitHub Pages pada bagian **About** repository ini.
