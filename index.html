@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MYTODO - Todo List</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="merek">
+    <div class="logo">&check;</div>
+    <span class="namaapp">MYTODO <span class="hati">&hearts;</span></span>
+  </div>
+
+  <nav>
+    <a href="#">Dashboard</a>
+    <a href="#">Semua Tugas</a>
+    <a href="#" class="aktif">Hari Ini</a>
+    <a href="#">Mendatang</a>
+    <a href="#">Kategori</a>
+  </nav>
+
+  <span class="identitas">Halo, Mas Valdi</span>
+</header>
+
+<div class="isi">
+
+  <main>
+
+    <section class="formbaru">
+      <h2>Tambah Tugas Baru</h2>
+      <form>
+        <div class="baris">
+          <div>
+            <label for="judul">Judul</label>
+            <input type="text" id="judul" placeholder="mau ngapain hari ini?">
+          </div>
+          <div>
+            <label for="kategori">Kategori</label>
+            <select id="kategori">
+              <option>Kampus</option>
+              <option>Bisnis</option>
+              <option>Pribadi</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="baris">
+          <div>
+            <label for="tgl">Tanggal</label>
+            <input type="date" id="tgl">
+          </div>
+          <div>
+            <label for="prioritas">Prioritas</label>
+            <select id="prioritas">
+              <option>Rendah</option>
+              <option>Sedang</option>
+              <option>Tinggi</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="ket">Keterangan</label>
+        <textarea id="ket" rows="2" placeholder="catatan kalo ada"></textarea>
+
+        <button type="submit">+ Tambah Tugas</button>
+      </form>
+    </section>
+
+    <h2>Belum Selesai</h2>
+    <ul class="daftar">
+      <li>
+        <input type="checkbox">
+        <div class="teks">
+          <span class="kategori pribadi">PRIBADI</span>
+          <b>Jogging 5 km</b>
+          <p>Jaga pace tetap stabil</p>
+          <div class="chipbaris">
+            <span class="chip">Hari ini</span>
+            <span class="chip sedang">Sedang</span>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <input type="checkbox">
+        <div class="teks">
+          <span class="kategori">KAMPUS</span>
+          <b>Upload SKEM</b>
+          <p>Unggah bukti kegiatan ke myITS sebelum ditutup</p>
+          <div class="chipbaris">
+            <span class="chip">15 Sep</span>
+            <span class="chip tinggi">Tinggi</span>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <input type="checkbox">
+        <div class="teks">
+          <span class="kategori">KAMPUS</span>
+          <b>Baca modul praktikum Jarkom</b>
+          <p>Modulnya dibaca2 dong Mas</p>
+          <div class="chipbaris">
+            <span class="chip">16 Sep</span>
+            <span class="chip tinggi">Tinggi</span>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <input type="checkbox">
+        <div class="teks">
+          <span class="kategori">KAMPUS</span>
+          <b>Belajar HTML</b>
+          <p>Belajar dari W3Schools</p>
+          <div class="chipbaris">
+            <span class="chip">17 Sep</span>
+            <span class="chip sedang">Sedang</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <h2>Sudah Selesai</h2>
+    <ul class="daftar selesai">
+      <li>
+        <input type="checkbox" checked>
+        <div class="teks">
+          <span class="kategori pribadi">PRIBADI</span>
+          <b>Belajar 1 jam tanpa distraksi</b>
+          <p>HP disilent jangan buka apa-apa sampai satu jam kelar</p>
+          <div class="chipbaris">
+            <span class="chip">13 Sep</span>
+            <span class="chip rendah">Rendah</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+  </main>
+
+  <aside>
+    <h2>Detail Tugas</h2>
+
+    <div class="kotak">
+      <label for="j2">Judul</label>
+      <input type="text" id="j2" value="Jogging 5 km">
+
+      <label for="status">Status</label>
+      <select id="status">
+        <option>Belum dikerjakan</option>
+        <option>Sedang dikerjakan</option>
+        <option>Selesai</option>
+      </select>
+
+      <label for="dl">Deadline</label>
+      <input type="date" id="dl" value="2026-09-14">
+
+      <label for="ket2">Keterangan</label>
+      <textarea id="ket2" rows="4">Jaga pace tetap stabil</textarea>
+
+      <div class="tombol">
+        <button type="button">Simpan</button>
+        <button type="button" class="hapus">Hapus</button>
+      </div>
+    </div>
+
+    <div class="kotak ringkasan">
+      <h3>Ringkasan</h3>
+      <div class="angka">
+        <div>
+          <span class="besar">5</span>
+          <span class="kecil">Total</span>
+        </div>
+        <div>
+          <span class="besar">1</span>
+          <span class="kecil">Selesai</span>
+        </div>
+        <div>
+          <span class="besar">4</span>
+          <span class="kecil">Belum</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<footer>
+  <p>Pemrograman Web A</p>
+</footer>
+
+</body>
+</html>
