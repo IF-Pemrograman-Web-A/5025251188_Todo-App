@@ -1,7 +1,5 @@
 # 5025251188_Todo-App
 
-Static web Todo List, tugas E01a mata kuliah Pemrograman Web kelas A.
-
 ## Identitas
 
 | NRP | Nama | Kelas |
