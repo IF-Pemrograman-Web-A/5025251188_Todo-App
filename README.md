@@ -56,7 +56,6 @@ tombol simpan dan hapus, kotak ringkasan jumlah tugas.
 <img width="1261" height="871" alt="Screenshot 2026-09-14 at 19 35 16" src="https://github.com/user-attachments/assets/f00fef51-0fe2-49fc-bbd0-ad42ac088893" />
 
 
-## Cara Menjalankan
+## Website
 
-1. Clone atau download repository ini
-2. Buka `index.html` memakai browser
+https://if-pemrograman-web-a.github.io/5025251188_Todo-App/
