@@ -11,7 +11,7 @@
 <header>
   <div class="merek">
     <div class="logo">&check;</div>
-    <span class="namaapp">MYTODO <span class="hati">&hearts;</span></span>
+    <span class="namaapp">MYTODO</span>
   </div>
 
   <nav>
@@ -23,6 +23,7 @@
   </nav>
 
   <span class="identitas">Halo, Mas Valdi</span>
+  <button type="button" id="tomboltema" class="tematoggle">Mode Gelap</button>
 </header>
 
 <div class="isi">
@@ -31,7 +32,7 @@
 
     <section class="formbaru">
       <h2>Tambah Tugas Baru</h2>
-      <form>
+      <form id="formtugas">
         <div class="baris">
           <div>
             <label for="judul">Judul</label>
@@ -65,80 +66,15 @@
         <label for="ket">Keterangan</label>
         <textarea id="ket" rows="2" placeholder="catatan kalo ada"></textarea>
 
-        <button type="submit">+ Tambah Tugas</button>
+        <button type="button" id="tambah">+ Tambah Tugas</button>
       </form>
     </section>
 
     <h2>Belum Selesai</h2>
-    <ul class="daftar">
-      <li>
-        <input type="checkbox">
-        <div class="teks">
-          <span class="kategori pribadi">PRIBADI</span>
-          <b>Jogging 5 km</b>
-          <p>Jaga pace tetap stabil</p>
-          <div class="chipbaris">
-            <span class="chip">Hari ini</span>
-            <span class="chip sedang">Sedang</span>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <input type="checkbox">
-        <div class="teks">
-          <span class="kategori">KAMPUS</span>
-          <b>Upload SKEM</b>
-          <p>Unggah bukti kegiatan ke myITS sebelum ditutup</p>
-          <div class="chipbaris">
-            <span class="chip">15 Sep</span>
-            <span class="chip tinggi">Tinggi</span>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <input type="checkbox">
-        <div class="teks">
-          <span class="kategori">KAMPUS</span>
-          <b>Baca modul praktikum Jarkom</b>
-          <p>Modulnya dibaca2 dong Mas</p>
-          <div class="chipbaris">
-            <span class="chip">16 Sep</span>
-            <span class="chip tinggi">Tinggi</span>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <input type="checkbox">
-        <div class="teks">
-          <span class="kategori">KAMPUS</span>
-          <b>Belajar HTML</b>
-          <p>Belajar dari W3Schools</p>
-          <div class="chipbaris">
-            <span class="chip">17 Sep</span>
-            <span class="chip sedang">Sedang</span>
-          </div>
-        </div>
-      </li>
-    </ul>
+    <ul class="daftar" id="belum"></ul>
 
     <h2>Sudah Selesai</h2>
-    <ul class="daftar selesai">
-      <li>
-        <input type="checkbox" checked>
-        <div class="teks">
-          <span class="kategori pribadi">PRIBADI</span>
-          <b>Belajar 1 jam tanpa distraksi</b>
-          <p>HP disilent jangan buka apa-apa sampai satu jam kelar</p>
-          <div class="chipbaris">
-            <span class="chip">13 Sep</span>
-            <span class="chip rendah">Rendah</span>
-          </div>
-        </div>
-      </li>
-    </ul>
+    <ul class="daftar selesai" id="sudah"></ul>
 
   </main>
 
@@ -147,24 +83,23 @@
 
     <div class="kotak">
       <label for="j2">Judul</label>
-      <input type="text" id="j2" value="Jogging 5 km">
+      <input type="text" id="j2" placeholder="pilih Edit di salah satu tugas">
 
       <label for="status">Status</label>
       <select id="status">
         <option>Belum dikerjakan</option>
-        <option>Sedang dikerjakan</option>
         <option>Selesai</option>
       </select>
 
       <label for="dl">Deadline</label>
-      <input type="date" id="dl" value="2026-09-14">
+      <input type="date" id="dl">
 
       <label for="ket2">Keterangan</label>
-      <textarea id="ket2" rows="4">Jaga pace tetap stabil</textarea>
+      <textarea id="ket2" rows="4"></textarea>
 
       <div class="tombol">
-        <button type="button">Simpan</button>
-        <button type="button" class="hapus">Hapus</button>
+        <button type="button" id="simpan">Simpan</button>
+        <button type="button" class="hapus" id="hapusdetail">Hapus</button>
       </div>
     </div>
 
@@ -172,15 +107,15 @@
       <h3>Ringkasan</h3>
       <div class="angka">
         <div>
-          <span class="besar">5</span>
+          <span class="besar" id="jumlahtotal">0</span>
           <span class="kecil">Total</span>
         </div>
         <div>
-          <span class="besar">1</span>
+          <span class="besar" id="jumlahselesai">0</span>
           <span class="kecil">Selesai</span>
         </div>
         <div>
-          <span class="besar">4</span>
+          <span class="besar" id="jumlahbelum">0</span>
           <span class="kecil">Belum</span>
         </div>
       </div>
@@ -192,6 +127,8 @@
 <footer>
   <p>Pemrograman Web A</p>
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
