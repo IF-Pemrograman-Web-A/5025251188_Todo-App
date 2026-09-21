@@ -8,6 +8,8 @@ NRP : 5025251188
 
 Kelas : A
 
+Website: https://if-pemrograman-web-a.github.io/5025251188_Todo-App/?v=3
+
 ## Deskripsi
 
 Lanjutan dari branch main. Sebelumnya halaman todo ini masih statis, semua tugasnya
