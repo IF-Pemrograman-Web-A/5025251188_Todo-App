@@ -8,7 +8,7 @@ NRP : 5025251188
 
 Kelas : A
 
-Website: https://if-pemrograman-web-a.github.io/5025251188_Todo-App/?v=3
+Website: https://if-pemrograman-web-a.github.io/5025251188_Todo-App/
 
 ## Deskripsi
 
