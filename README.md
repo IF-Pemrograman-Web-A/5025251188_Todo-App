@@ -1,9 +1,11 @@
 # 5025251188_Todo App
 
-Tugas E02a
+# Tugas E02a
 
 Nama : Novaldi Rayhan Asshiddiqi
+
 NRP : 5025251188
+
 Kelas : A
 
 ## Deskripsi
@@ -30,18 +32,22 @@ File yang ada:
 
 ## Preview
 
-Mode terang
+# Mode terang
 
+<img width="1624" height="984" alt="Screenshot 2026-09-21 at 18 52 16" src="https://github.com/user-attachments/assets/93c1cd87-0a60-4ff4-acbd-50f397666cb7" />
 
+# Mode gelap
 
-Mode gelap
+<img width="1624" height="984" alt="Screenshot 2026-09-21 at 18 52 21" src="https://github.com/user-attachments/assets/2a5c76ad-22e4-41de-9744-e05d2618c07f" />
 
+# Tampilan HP
 
+<img width="1260" height="792" alt="Screenshot 2026-09-21 at 18 58 57" src="https://github.com/user-attachments/assets/6abf7cc1-9ba7-49d2-97c3-9899f73d309f" />
 
-Tampilan HP
+<img width="1260" height="792" alt="Screenshot 2026-09-21 at 18 59 42" src="https://github.com/user-attachments/assets/73aaf3ec-1e6a-4d43-981f-61cf14fd4944" />
 
-
+<img width="1260" height="792" alt="Screenshot 2026-09-21 at 18 59 46" src="https://github.com/user-attachments/assets/0c057c21-4f1a-4c4c-90d8-9e2a9d78422c" />
 
 ## Cara buka
 
-Download, terus buka index.html pakai browser.
+Download, terus buka index.html pakai browser
