@@ -73,7 +73,9 @@ File yang ada:
 
 ## Cara buka
 
-Lewat localhost
+Klik link Website yang ada di atas 
+
+Atau lewat localhost dengan,
 
 Download dulu semua filenya, terus buka terminal dan jalanin ini:
 
