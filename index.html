@@ -3,18 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MYTODO - Todo List</title>
+<title>MYTODO - Aplikasi Daftar Tugas Harian</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<a href="#konten" class="lewati">Lewati ke konten utama</a>
+
 <header>
   <div class="merek">
-    <div class="logo">&check;</div>
+    <div class="logo" aria-hidden="true">&check;</div>
     <span class="namaapp">MYTODO</span>
   </div>
 
-  <nav>
+  <nav aria-label="Menu utama">
     <a href="#">Dashboard</a>
     <a href="#">Semua Tugas</a>
     <a href="#" class="aktif">Hari Ini</a>
@@ -26,9 +28,13 @@
   <button type="button" id="tomboltema" class="tematoggle">Mode Gelap</button>
 </header>
 
+<p id="pesan" class="pesan" role="status">Selamat datang, tugas hari ini sudah dimuat.</p>
+
 <div class="isi">
 
-  <main>
+  <main id="konten" tabindex="-1">
+
+    <h1>Daftar Tugas Harian</h1>
 
     <section class="formbaru">
       <h2>Tambah Tugas Baru</h2>
@@ -63,8 +69,24 @@
           </div>
         </div>
 
+        <label for="jam">Waktu pengingat</label>
+        <input type="time" id="jam">
+
         <label for="ket">Keterangan</label>
         <textarea id="ket" rows="2" placeholder="catatan kalo ada"></textarea>
+
+        <div class="kamera">
+          <h3>Foto tugas</h3>
+          <p class="bantuan">Nyalakan kamera dulu, habis itu tekan Ambil Foto.</p>
+          <video id="videokamera"></video>
+          <canvas id="kanvas"></canvas>
+          <img id="pratinjau" alt="Pratinjau foto tugas yang sudah diambil">
+          <div class="tombol">
+            <button type="button" id="nyalakan" class="aksibtn">Nyalakan Kamera</button>
+            <button type="button" id="jepret" class="aksibtn">Ambil Foto</button>
+            <button type="button" id="buangfoto" class="aksibtn buang">Hapus Foto</button>
+          </div>
+        </div>
 
         <button type="button" id="tambah">+ Tambah Tugas</button>
       </form>
@@ -94,6 +116,9 @@
       <label for="dl">Deadline</label>
       <input type="date" id="dl">
 
+      <label for="jam2">Waktu pengingat</label>
+      <input type="time" id="jam2">
+
       <label for="ket2">Keterangan</label>
       <textarea id="ket2" rows="4"></textarea>
 
@@ -119,6 +144,12 @@
           <span class="kecil">Belum</span>
         </div>
       </div>
+    </div>
+
+    <div class="kotak">
+      <h3>Notifikasi</h3>
+      <p class="bantuan">Izinkan notifikasi supaya dapat pengingat tiap nambah tugas.</p>
+      <button type="button" id="izinnotif" class="aksibtn">Izinkan Notifikasi</button>
     </div>
   </aside>
 
