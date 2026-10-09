@@ -80,7 +80,7 @@ nav a.aktif {
 
 .isi {
   display: grid;
-  grid-template-columns: 62% 38%;
+  grid-template-columns: 180px 1fr 290px;
   gap: 14px;
   margin-top: 14px;
 }
@@ -414,6 +414,100 @@ h1 {
   margin-top: 8px;
 }
 
+.sidebar {
+  display: block;
+  background-color: #ffffff;
+  border: 1px solid #c3cfe0;
+  padding: 18px;
+}
+
+.sidebar h2 {
+  font-size: 0.8125rem;
+  margin-top: 20px;
+}
+
+.sidebar h2:first-child {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0 0 20px 0;
+}
+
+.sidebar li {
+  margin-bottom: 6px;
+}
+
+.sidebar a {
+  display: block;
+  background-color: #f4f7fb;
+  border: 1px solid #d5dfeb;
+  color: #1d4ed8;
+  font-size: 0.8125rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 9px 12px;
+}
+
+.sidebar a.menuaktif {
+  background-color: #1d4ed8;
+  border: 1px solid #163fae;
+  color: #ffffff;
+}
+
+.logkotak {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  background-color: #f4f7fb;
+  border: 1px solid #d5dfeb;
+  color: #4a5a75;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.6875rem;
+  padding: 10px;
+  margin: 0 0 10px 0;
+  max-height: 180px;
+  overflow: auto;
+}
+
+.hapuslog {
+  display: block;
+  color: #b3261e;
+  font-size: 0.6875rem;
+  text-align: center;
+}
+
+.isisatu {
+  margin-top: 14px;
+}
+
+.isisatu main {
+  background-color: #ffffff;
+  border: 1px solid #c3cfe0;
+  padding: 18px;
+}
+
+a.aksibtn {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.tombol a.aksibtn {
+  margin-top: 14px;
+  padding: 10px 18px;
+  font-size: 0.8125rem;
+  font-weight: bold;
+}
+
+.centang {
+  color: #1d4ed8;
+  font-size: 1.125rem;
+  text-decoration: none;
+  line-height: 1;
+}
+
 body.gelap {
   background-color: #101725;
   color: #e6ebf5;
@@ -569,6 +663,42 @@ body.gelap .kamera h3,
 body.gelap .kotak h3,
 body.gelap .bantuan {
   color: #9fb0cc;
+}
+
+body.gelap .sidebar {
+  background-color: #18202f;
+  border: 1px solid #2b3648;
+}
+
+body.gelap .sidebar a {
+  background-color: #141c2b;
+  border: 1px solid #2b3648;
+  color: #93c5fd;
+}
+
+body.gelap .sidebar a.menuaktif {
+  background-color: #6ea0ff;
+  border: 1px solid #6ea0ff;
+  color: #101725;
+}
+
+body.gelap .logkotak {
+  background-color: #141c2b;
+  border: 1px solid #2b3648;
+  color: #9fb0cc;
+}
+
+body.gelap .hapuslog {
+  color: #fca5a5;
+}
+
+body.gelap .isisatu main {
+  background-color: #18202f;
+  border: 1px solid #2b3648;
+}
+
+body.gelap .centang {
+  color: #93c5fd;
 }
 
 @media screen and (max-width: 768px) {
