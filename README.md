@@ -1,6 +1,6 @@
 # 5025251188_Todo App
 
-# Tugas E03
+# Tugas E04
 
 Nama : Novaldi Rayhan Asshiddiqi
 
@@ -8,79 +8,104 @@ NRP : 5025251188
 
 Kelas : A
 
-Website: https://if-pemrograman-web-a.github.io/5025251188_Todo-App/
-
 ## Deskripsi
 
-Lanjutan dari branch E02. Sebelumnya data tugasnya masih disimpan di array biasa di
-dalam script.js, jadi tiap halaman direfresh tugasnya balik lagi ke lima tugas awal.
-Sekarang datanya dipindah ke IndexedDB biar nggak hilang, pilihan tema terang/gelap
-disimpan di localStorage, formnya ditambah kolom foto sama kolom waktu pengingat, dan
-ditambah file sw.js buat service worker.
+Lanjutan dari branch E03. Sebelumnya semua data tugas disimpan di browser lewat
+IndexedDB, jadi tiap orang cuma bisa lihat tugasnya sendiri. Sekarang datanya dipindah
+ke database MySQL dan diproses pakai PHP, jadi tugasnya bisa dipakai bareng-bareng satu
+organisasi. Kode HTML-nya juga dipecah jadi beberapa file PHP biar nggak numpuk di satu
+file, dan ditambah menu Personal sama Shared di sebelah kiri.
 
 File yang ada:
 
-- index.html
-- style.css
-- script.js
-- sw.js
+- index.php (halaman Personal)
+- shared.php (halaman Shared)
+- kerangka.php (rangka halaman, dipakai dua-duanya)
+- menu-bar.php (side bar Personal/Shared + catatan aktivitas)
+- content.php (form tambah + daftar tugas)
+- kartu.php (satu kartu tugas)
+- detail.php (panel Detail Tugas di sebelah kanan)
+- config.php (koneksi database + fungsi tulis catatan)
+- tambah.php, ubah.php, hapus.php, selesai.php (proses CRUD)
+- edit.php (halaman form edit)
+- hapuslog.php (hapus file catatan)
+- data.sql (struktur database + data dummy)
+- style.css, script.js, sw.js
 
 ## Yang dikerjakan
 
-- Data tugas disimpan di IndexedDB (database tododb, object store tugas), jadi kalau
-  halaman direfresh atau browser ditutup tugasnya tetap ada
-- Pilihan tema terang/gelap disimpan di localStorage, pas halaman dibuka lagi temanya
-  masih sama kayak terakhir dipakai
-- Kolom foto di form tugas pakai Media Capture API (navigator.mediaDevices.getUserMedia),
-  fotonya diambil dari video pakai Canvas API terus nempel di kartu tugasnya
-- Kolom waktu pengingat di form tugas, sama tombol buat minta izin notifikasi
-- Service worker didaftarkan lewat sw.js, isinya event install, activate, sama push
-- Aksesibilitas: lang="id", title yang jelas, link Lewati ke konten utama, h1 di awal
-  konten, label di semua input, alt di semua gambar, aria-label di tombol Edit/Hapus
-  sama checkbox, role="status" buat pesan, ukuran font pakai rem, warna teks dicek
-  kontrasnya
+- Side bar dengan dua menu, Personal sama Shared. Keduanya halaman PHP sendiri-sendiri
+  dan tugasnya dipisah lewat kolom jenis di database
+- Kode HTML dipecah jadi beberapa file PHP kecil, terus digabung lagi jadi satu
+  halaman utuh pakai include
+- Struktur database dan data dummy disimpan di data.sql, tabelnya bernama tugas
+- CRUD pakai PHP dan MySQLi, tambah pakai INSERT INTO, tampil pakai SELECT FROM,
+  edit pakai UPDATE, hapus pakai DELETE FROM
+- Centang selesai juga lewat UPDATE ke database
+- Panel Detail Tugas di kanan tetap dipakai seperti di E03, kosong kalau belum milih,
+  dan langsung terisi begitu tombol Edit di kartu ditekan
+- File handling, tiap kali ada tambah, edit, atau hapus, aktivitasnya dicatat ke file
+  log.txt pakai file_get_contents dan file_put_contents. Catatannya ditampilkan di side
+  bar, dan bisa dibersihkan pakai unlink
+- Fitur dari E03 tetap jalan, kamera (foto disimpan ke database), tema terang/gelap
+  (localStorage), notifikasi, service worker, dan aksesibilitasnya
 
 ## Preview
 
-# Mode terang
+# Halaman Personal
 
-<img width="1624" height="986" alt="Screenshot 2026-10-05 at 18 58 03" src="https://github.com/user-attachments/assets/35c24251-7ac3-45c4-822c-97bbe26d2c0f" />
+<img width="1624" height="987" alt="Screenshot 2026-10-09 at 08 20 15" src="https://github.com/user-attachments/assets/7da95950-1188-4a23-bbc2-68f9507cbc1b" />
+
+# Halaman Shared
+
+<img width="1624" height="987" alt="Screenshot 2026-10-09 at 08 27 03" src="https://github.com/user-attachments/assets/426da8c7-2f1e-4850-aa60-fdc3adbcc1d0" />
+<img width="1624" height="987" alt="Screenshot 2026-10-09 at 08 27 09" src="https://github.com/user-attachments/assets/d2379a86-f350-44de-9c0e-44e57b01d44d" />
 
 # Mode gelap
 
-<img width="1624" height="986" alt="Screenshot 2026-10-05 at 18 58 07" src="https://github.com/user-attachments/assets/3f581595-5f69-44a2-848a-069a12a5e902" />
+<img width="1624" height="987" alt="Screenshot 2026-10-09 at 08 29 26" src="https://github.com/user-attachments/assets/8744f000-cd45-4c01-9893-34706bcdf2fb" />
 
-# Tampilan HP
+# Panel Detail Tugas saat edit
 
-<img width="1624" height="986" alt="Screenshot 2026-10-05 at 19 01 07" src="https://github.com/user-attachments/assets/95a3fdf2-a2a3-4bae-8f26-992d0e651618" />
-<img width="1624" height="986" alt="Screenshot 2026-10-05 at 19 01 16" src="https://github.com/user-attachments/assets/f4ed77c8-55a0-4d17-a531-4229e87a6ee4" />
-<img width="1624" height="986" alt="Screenshot 2026-10-05 at 19 01 33" src="https://github.com/user-attachments/assets/7e63d3d2-46f5-4910-b816-11a1c2d32f8c" />
+<img width="1624" height="987" alt="Screenshot 2026-10-09 at 08 24 31" src="https://github.com/user-attachments/assets/bac8360f-a97b-4222-a238-0857c69ec1bb" />
 
-# Ambil foto lewat kamera
+# Tugas dengan foto dari kamera
 
-<img width="1624" height="986" alt="Screenshot 2026-10-05 at 19 04 08" src="https://github.com/user-attachments/assets/500139f3-5c94-42dc-b0b1-a234d4601598" />
-<img width="1624" height="986" alt="Screenshot 2026-10-05 at 19 04 18" src="https://github.com/user-attachments/assets/9128f6e5-4a64-4700-95d2-11da88820c8f" />
+<img width="1624" height="987" alt="Screenshot 2026-10-09 at 08 26 25" src="https://github.com/user-attachments/assets/30f02fa1-f513-4dcd-81aa-7b99eff8c00b" />
 
-# Notifikasi
+# Isi tabel tugas di phpMyAdmin
 
-<img width="1624" height="986" alt="Screenshot 2026-10-05 at 19 06 31" src="https://github.com/user-attachments/assets/7dad598d-3e3b-4f54-bf49-ccc71338f73a" />
-<img width="1512" height="873" alt="Screenshot 2026-10-05 at 19 10 41" src="https://github.com/user-attachments/assets/b0b1bec8-075f-4229-aca5-2ffeed17b12c" />
+<img width="1624" height="987" alt="Screenshot 2026-10-09 at 08 33 03" src="https://github.com/user-attachments/assets/3d15b1fe-71ee-4cfd-9aee-67d70558fb79" />
+<img width="1624" height="987" alt="Screenshot 2026-10-09 at 08 33 12" src="https://github.com/user-attachments/assets/400fcc71-410d-453a-8a4c-86fdcf807472" />
 
-# DevTools (tugas & service workers)
+## Cara menjalankan
 
-<img width="1624" height="986" alt="Screenshot 2026-10-05 at 19 13 36" src="https://github.com/user-attachments/assets/7c855f6d-b945-45a8-8adc-65d6066a2681" />
-<img width="1624" height="986" alt="Screenshot 2026-10-05 at 19 14 05" src="https://github.com/user-attachments/assets/567aaec8-0f55-4066-8674-99eaa3097096" />
+Beda dari tugas sebelumnya, yang ini **tidak bisa dibuka lewat GitHub Pages**, karena
+GitHub Pages cuma bisa melayani file statis dan tidak bisa menjalankan PHP. Harus
+dijalankan pakai web server sendiri.
 
-## Cara buka
+**1. Install XAMPP**
 
-Klik link Website yang ada di atas 
+Download XAMPP, lalu nyalakan Apache dan MySQL lewat XAMPP Control Panel.
 
-Atau lewat localhost dengan,
+**2. Taruh filenya di folder htdocs**
 
-Download dulu semua filenya, terus buka terminal dan jalanin ini:
+Salin semua file ke dalam folder htdocs, misalnya jadi folder bernama todo-app.
 
-    cd folder-tempat-filenya
-    python3 -m http.server 8000
+**3. Buat databasenya**
 
-Habis itu buka browser ke `http://localhost:8000`. Kalau mau berhenti, tekan Ctrl+C di terminal.
+Buka `http://localhost/phpmyadmin`, masuk ke tab Import, pilih file `data.sql`, lalu
+tekan Import. Database bernama `tododb` beserta tabel `tugas` dan data dummynya akan
+dibuat otomatis.
 
+**4. Buka di browser**
+
+    http://localhost/todo-app/index.php
+
+Kalau username atau password MySQL di komputernya beda, ubah dulu bagian ini di
+`config.php`:
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "tododb";
