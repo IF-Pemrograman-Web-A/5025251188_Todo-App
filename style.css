@@ -47,6 +47,8 @@ header {
 }
 
 .namaapp {
+  margin: 0;
+  font-size: 17px;
   font-size: 17px;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -261,7 +263,13 @@ input[type=checkbox]:checked {
   color: #059669;
 }
 
-.teks b {
+.teks label {
+  display: block;
+  color: #111827;
+  margin: 0;
+}
+
+.teks strong {
   display: block;
   font-size: 14px;
   font-weight: 600;
@@ -302,7 +310,7 @@ input[type=checkbox]:checked {
   color: #1d4ed8;
 }
 
-.selesai b {
+.selesai strong {
   color: #9aa6bd;
   text-decoration: line-through;
 }
