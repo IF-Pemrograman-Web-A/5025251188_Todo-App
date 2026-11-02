@@ -20,25 +20,29 @@ File diubah: sw.js, kerangka.php, script.js
 
 ## Yang dikerjakan
 
-- **manifest.json** — identitas aplikasi: name, short_name, start_url, display
-  standalone, theme_color, background_color, ikon 48x48 dan 196x196.
+- **manifest.json**
 
-- **sw.js** — event install menyimpan app shell (HTML, CSS, JavaScript) ke cache,
-  event activate menghapus cache versi lama.
+  identitas aplikasi diantaranya name, short_name, start_url, display standalone, theme_color, background_color, ikon 48x48 dan 196x196.
 
-- **offline.html** — halaman cadangan kalau halaman yang dibuka belum ada di cache.
+- **sw.js** 
 
-- **Strategi cache** — CSS, JavaScript, gambar, dan manifest pakai **Cache First**
-  karena jarang berubah. Halaman PHP pakai **Network First** karena datanya sering
-  berubah, kalau jaringan mati baru ambil dari cache, kalau kosong tampil offline.html.
+  event install menyimpan app shell (HTML, CSS, JavaScript) ke cache, event activate menghapus cache versi lama.
 
-- **Tombol Pasang Aplikasi** — pakai event `beforeinstallprompt`, muncul sendiri kalau
-  browser menilai aplikasinya layak dipasang.
+- **offline.html** 
+
+  halaman cadangan kalau halaman yang dibuka belum ada di cache.
+
+- **Strategi cache**
+
+  CSS, JavaScript, gambar, dan manifest pakai **Cache First** karena jarang berubah. Halaman PHP pakai **Network First** karena datanya sering berubah, kalau jaringan mati baru ambil dari cache, kalau kosong tampil offline.html.
+
+- **Tombol Pasang Aplikasi**
+
+  pakai event `beforeinstallprompt`, muncul sendiri kalau browser menilai aplikasinya layak dipasang.
 
 ## Laporan Uji Offline
 
-Diuji di Chrome, DevTools tab Application, dengan mencentang Offline di bagian Service
-Workers.
+Diuji di Chrome, DevTools tab Application, dengan mencentang Offline di bagian Service Workers.
 
 | Yang diuji | Hasil |
 |---|---|
@@ -49,8 +53,7 @@ Workers.
 | Offline, buka halaman yang belum pernah dibuka | Sesuai, muncul offline.html |
 | Offline, tambah tugas | Gagal, datanya di MySQL jadi butuh koneksi |
 
-Menambah dan mengubah tugas saat offline belum didukung, karena datanya ada di database
-MySQL di server. Yang bisa offline baru tampilan dan halaman yang pernah dibuka.
+Menambah dan mengubah tugas saat offline belum didukung, karena datanya ada di database MySQL di server. Yang bisa offline baru tampilan dan halaman yang pernah dibuka.
 
 ## Preview
 
@@ -97,8 +100,8 @@ tekan Import.
 
 **4.** Buka `http://localhost/todo-app/index.php`
 
-Service worker hanya berjalan di https atau localhost, jadi filenya jangan dibuka
-dengan klik dua kali.
+Service worker hanya berjalan di https atau localhost, jadi filenya jangan dibuka dengan klik dua kali.
 
-**Cara menguji offline:** buka DevTools, tab Application, pilih Service Workers,
-centang Offline, lalu muat ulang halaman.
+**Cara menguji offline:** 
+
+Buka DevTools, tab Application, pilih Service Workers, centang Offline, lalu muat ulang halaman.
