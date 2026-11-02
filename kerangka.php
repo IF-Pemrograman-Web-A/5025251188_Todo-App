@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MYTODO - <?php echo $judulhalaman; ?></title>
+<link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,6 +27,7 @@
 
   <span class="identitas">Halo, Mas Valdi</span>
   <button type="button" id="tomboltema" class="tematoggle">Mode Gelap</button>
+  <button type="button" id="install-button" class="tematoggle">Pasang Aplikasi</button>
 </header>
 
 <p id="pesan" class="pesan" role="status">Selamat datang, tugas hari ini sudah dimuat.</p>

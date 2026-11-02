@@ -126,3 +126,20 @@ async function daftarkansw() {
 }
 
 daftarkansw();
+
+let deferredPrompt;
+const btn = document.querySelector("#install-button");
+btn.hidden = true;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  btn.hidden = false;
+});
+
+btn.addEventListener("click", async () => {
+  if (!deferredPrompt) return;
+  await deferredPrompt.prompt();
+  deferredPrompt = null;
+  btn.hidden = true;
+});

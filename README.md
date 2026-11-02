@@ -1,6 +1,6 @@
 # 5025251188_Todo App
 
-# Tugas E04
+# Tugas E05
 
 Nama : Novaldi Rayhan Asshiddiqi
 
@@ -10,102 +10,95 @@ Kelas : A
 
 ## Deskripsi
 
-Lanjutan dari branch E03. Sebelumnya semua data tugas disimpan di browser lewat
-IndexedDB, jadi tiap orang cuma bisa lihat tugasnya sendiri. Sekarang datanya dipindah
-ke database MySQL dan diproses pakai PHP, jadi tugasnya bisa dipakai bareng-bareng satu
-organisasi. Kode HTML-nya juga dipecah jadi beberapa file PHP biar nggak numpuk di satu
-file, dan ditambah menu Personal sama Shared di sebelah kiri.
+Lanjutan dari branch E04. Aplikasinya diubah jadi PWA (Progressive Web App), yaitu web
+yang bisa dipasang seperti aplikasi biasa dan tetap bisa dibuka walaupun tidak ada
+internet.
 
-File yang ada:
+File baru: manifest.json, offline.html, icon-48.png, icon-196.png
 
-- index.php (halaman Personal)
-- shared.php (halaman Shared)
-- kerangka.php (rangka halaman, dipakai dua-duanya)
-- menu-bar.php (side bar Personal/Shared + catatan aktivitas)
-- content.php (form tambah + daftar tugas)
-- kartu.php (satu kartu tugas)
-- detail.php (panel Detail Tugas di sebelah kanan)
-- config.php (koneksi database + fungsi tulis catatan)
-- tambah.php, ubah.php, hapus.php, selesai.php (proses CRUD)
-- edit.php (halaman form edit)
-- hapuslog.php (hapus file catatan)
-- data.sql (struktur database + data dummy)
-- style.css, script.js, sw.js
+File diubah: sw.js, kerangka.php, script.js
 
 ## Yang dikerjakan
 
-- Side bar dengan dua menu, Personal sama Shared. Keduanya halaman PHP sendiri-sendiri
-  dan tugasnya dipisah lewat kolom jenis di database
-- Kode HTML dipecah jadi beberapa file PHP kecil, terus digabung lagi jadi satu
-  halaman utuh pakai include
-- Struktur database dan data dummy disimpan di data.sql, tabelnya bernama tugas
-- CRUD pakai PHP dan MySQLi, tambah pakai INSERT INTO, tampil pakai SELECT FROM,
-  edit pakai UPDATE, hapus pakai DELETE FROM
-- Centang selesai juga lewat UPDATE ke database
-- Panel Detail Tugas di kanan tetap dipakai seperti di E03, kosong kalau belum milih,
-  dan langsung terisi begitu tombol Edit di kartu ditekan
-- File handling, tiap kali ada tambah, edit, atau hapus, aktivitasnya dicatat ke file
-  log.txt pakai file_get_contents dan file_put_contents. Catatannya ditampilkan di side
-  bar, dan bisa dibersihkan pakai unlink
-- Fitur dari E03 tetap jalan, kamera (foto disimpan ke database), tema terang/gelap
-  (localStorage), notifikasi, service worker, dan aksesibilitasnya
+- **manifest.json** — identitas aplikasi: name, short_name, start_url, display
+  standalone, theme_color, background_color, ikon 48x48 dan 196x196.
+
+- **sw.js** — event install menyimpan app shell (HTML, CSS, JavaScript) ke cache,
+  event activate menghapus cache versi lama.
+
+- **offline.html** — halaman cadangan kalau halaman yang dibuka belum ada di cache.
+
+- **Strategi cache** — CSS, JavaScript, gambar, dan manifest pakai **Cache First**
+  karena jarang berubah. Halaman PHP pakai **Network First** karena datanya sering
+  berubah, kalau jaringan mati baru ambil dari cache, kalau kosong tampil offline.html.
+
+- **Tombol Pasang Aplikasi** — pakai event `beforeinstallprompt`, muncul sendiri kalau
+  browser menilai aplikasinya layak dipasang.
+
+## Laporan Uji Offline
+
+Diuji di Chrome, DevTools tab Application, dengan mencentang Offline di bagian Service
+Workers.
+
+| Yang diuji | Hasil |
+|---|---|
+| Manifest terbaca | Sesuai, display standalone, 2 ikon |
+| Service worker | Sesuai, activated and is running |
+| Cache storage | Sesuai, 8 berkas di mytodo-v1 |
+| Offline, buka ulang index.php | Sesuai, tampil lengkap dari cache |
+| Offline, buka halaman yang belum pernah dibuka | Sesuai, muncul offline.html |
+| Offline, tambah tugas | Gagal, datanya di MySQL jadi butuh koneksi |
+
+Menambah dan mengubah tugas saat offline belum didukung, karena datanya ada di database
+MySQL di server. Yang bisa offline baru tampilan dan halaman yang pernah dibuka.
 
 ## Preview
 
-# Halaman Personal
+# Manifest di DevTools
 
-<img width="1624" height="987" alt="Screenshot 2026-10-09 at 08 20 15" src="https://github.com/user-attachments/assets/7da95950-1188-4a23-bbc2-68f9507cbc1b" />
+![Manifest](screenshot/Screenshot%202026-10-31%20at%2007.58.58.png)
 
-# Halaman Shared
+![Ikon di manifest](screenshot/Screenshot%202026-10-31%20at%2007.59.07.png)
 
-<img width="1624" height="987" alt="Screenshot 2026-10-09 at 08 27 03" src="https://github.com/user-attachments/assets/426da8c7-2f1e-4850-aa60-fdc3adbcc1d0" />
-<img width="1624" height="987" alt="Screenshot 2026-10-09 at 08 27 09" src="https://github.com/user-attachments/assets/d2379a86-f350-44de-9c0e-44e57b01d44d" />
+# Service Worker aktif
 
-# Mode gelap
+![Service worker](screenshot/Screenshot%202026-10-31%20at%2008.00.48.png)
 
-<img width="1624" height="987" alt="Screenshot 2026-10-09 at 08 29 26" src="https://github.com/user-attachments/assets/8744f000-cd45-4c01-9893-34706bcdf2fb" />
+# Isi Cache Storage
 
-# Panel Detail Tugas saat edit
+![Cache storage](screenshot/Screenshot%202026-10-31%20at%2008.03.41.png)
 
-<img width="1624" height="987" alt="Screenshot 2026-10-09 at 08 24 31" src="https://github.com/user-attachments/assets/bac8360f-a97b-4222-a238-0857c69ec1bb" />
+# Tampilan saat offline
 
-# Tugas dengan foto dari kamera
+![Tampilan offline](screenshot/Screenshot%202026-10-31%20at%2008.04.58.png)
 
-<img width="1624" height="987" alt="Screenshot 2026-10-09 at 08 26 25" src="https://github.com/user-attachments/assets/30f02fa1-f513-4dcd-81aa-7b99eff8c00b" />
+# Halaman offline.html
 
-# Isi tabel tugas di phpMyAdmin
+![Halaman offline](screenshot/Screenshot%202026-10-31%20at%2014.35.53.png)
 
-<img width="1624" height="987" alt="Screenshot 2026-10-09 at 08 33 03" src="https://github.com/user-attachments/assets/3d15b1fe-71ee-4cfd-9aee-67d70558fb79" />
-<img width="1624" height="987" alt="Screenshot 2026-10-09 at 08 33 12" src="https://github.com/user-attachments/assets/400fcc71-410d-453a-8a4c-86fdcf807472" />
+# Tombol Pasang Aplikasi
+
+![Tombol pasang](screenshot/Screenshot%202026-10-31%20at%2008.10.44.png)
+
+# Aplikasi terpasang di jendela sendiri
+
+![Aplikasi terpasang](screenshot/Screenshot%202026-10-31%20at%2008.11.26.png)
 
 ## Cara menjalankan
 
-Beda dari tugas sebelumnya, yang ini **tidak bisa dibuka lewat GitHub Pages**, karena
-GitHub Pages cuma bisa melayani file statis dan tidak bisa menjalankan PHP. Harus
-dijalankan pakai web server sendiri.
+Sama seperti E04, butuh web server karena memakai PHP dan MySQL.
 
-**1. Install XAMPP**
+**1.** Install XAMPP, lalu nyalakan Apache dan MySQL.
 
-Download XAMPP, lalu nyalakan Apache dan MySQL lewat XAMPP Control Panel.
+**2.** Salin semua file ke folder htdocs, misalnya jadi folder todo-app.
 
-**2. Taruh filenya di folder htdocs**
+**3.** Buka `http://localhost/phpmyadmin`, masuk tab Import, pilih file `data.sql`,
+tekan Import.
 
-Salin semua file ke dalam folder htdocs, misalnya jadi folder bernama todo-app.
+**4.** Buka `http://localhost/todo-app/index.php`
 
-**3. Buat databasenya**
+Service worker hanya berjalan di https atau localhost, jadi filenya jangan dibuka
+dengan klik dua kali.
 
-Buka `http://localhost/phpmyadmin`, masuk ke tab Import, pilih file `data.sql`, lalu
-tekan Import. Database bernama `tododb` beserta tabel `tugas` dan data dummynya akan
-dibuat otomatis.
-
-**4. Buka di browser**
-
-    http://localhost/todo-app/index.php
-
-Kalau username atau password MySQL di komputernya beda, ubah dulu bagian ini di
-`config.php`:
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "tododb";
+**Cara menguji offline:** buka DevTools, tab Application, pilih Service Workers,
+centang Offline, lalu muat ulang halaman.
