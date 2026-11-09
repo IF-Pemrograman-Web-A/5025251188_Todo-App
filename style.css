@@ -332,6 +332,15 @@ footer p {
   margin: 0;
 }
 
+.pesan {
+  background-color: #eef3fb;
+  border: 1px solid #c7d6ec;
+  color: #1a2233;
+  font-size: 13px;
+  padding: 8px 12px;
+  margin: 0 0 12px 0;
+}
+
 body.gelap {
   background-color: #101725;
   color: #e6ebf5;
@@ -483,4 +492,9 @@ body.gelap .selesai b {
   .baris > div {
     width: 100%;
   }
+}
+body.gelap .pesan {
+  background-color: #141c2b;
+  border: 1px solid #2b3648;
+  color: #e6ebf5;
 }

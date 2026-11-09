@@ -11,6 +11,11 @@ let idedit = 0;
 
 const listbelum = document.getElementById("belum");
 const listsudah = document.getElementById("sudah");
+const kotakpesan = document.getElementById("pesan");
+
+function tulispesan(teks) {
+  kotakpesan.textContent = teks;
+}
 
 function buatkartu(tugas) {
   const li = document.createElement("li");
@@ -18,10 +23,7 @@ function buatkartu(tugas) {
   const centang = document.createElement("input");
   centang.type = "checkbox";
   centang.checked = tugas.selesai;
-  centang.addEventListener("change", function () {
-    tugas.selesai = centang.checked;
-    tampilkan();
-  });
+  centang.setAttribute("aria-label", "Tandai selesai " + tugas.judul);
 
   const teks = document.createElement("div");
   teks.className = "teks";
@@ -62,6 +64,7 @@ function buatkartu(tugas) {
   tomboledit.type = "button";
   tomboledit.className = "aksibtn";
   tomboledit.textContent = "Edit";
+  tomboledit.setAttribute("aria-label", "Edit " + tugas.judul);
   tomboledit.addEventListener("click", function () {
     isidetail(tugas);
   });
@@ -70,6 +73,7 @@ function buatkartu(tugas) {
   tombolbuang.type = "button";
   tombolbuang.className = "aksibtn buang";
   tombolbuang.textContent = "Hapus";
+  tombolbuang.setAttribute("aria-label", "Hapus " + tugas.judul);
   tombolbuang.addEventListener("click", function () {
     buang(tugas.id);
   });
@@ -137,13 +141,15 @@ function buang(id) {
     document.getElementById("ket2").value = "";
   }
   tampilkan();
+  tulispesan("Satu tugas sudah dihapus.");
 }
 
-document.getElementById("tambah").addEventListener("click", function () {
+document.getElementById("formtugas").addEventListener("submit", function (event) {
+  event.preventDefault();
   const judul = document.getElementById("judul").value;
 
   if (judul === "") {
-    alert("Judul tugasnya diisi dulu");
+    tulispesan("Judul tugasnya diisi dulu.");
     return;
   }
 
@@ -162,11 +168,12 @@ document.getElementById("tambah").addEventListener("click", function () {
   document.getElementById("tgl").value = "";
   document.getElementById("ket").value = "";
   tampilkan();
+  tulispesan("Tugas " + judul + " sudah ditambahkan.");
 });
 
 document.getElementById("simpan").addEventListener("click", function () {
   if (idedit === 0) {
-    alert("Pilih Edit di salah satu tugas dulu");
+    tulispesan("Pilih Edit di salah satu tugas dulu.");
     return;
   }
 
@@ -179,11 +186,12 @@ document.getElementById("simpan").addEventListener("click", function () {
     }
   }
   tampilkan();
+  tulispesan("Perubahan tugas sudah disimpan.");
 });
 
 document.getElementById("hapusdetail").addEventListener("click", function () {
   if (idedit === 0) {
-    alert("Pilih Edit di salah satu tugas dulu");
+    tulispesan("Pilih Edit di salah satu tugas dulu.");
     return;
   }
   buang(idedit);
@@ -194,8 +202,10 @@ document.getElementById("tomboltema").addEventListener("click", function () {
   const tombol = document.getElementById("tomboltema");
   if (document.body.className === "gelap") {
     tombol.textContent = "Mode Terang";
+    tombol.setAttribute("aria-pressed", "true");
   } else {
     tombol.textContent = "Mode Gelap";
+    tombol.setAttribute("aria-pressed", "false");
   }
 });
 

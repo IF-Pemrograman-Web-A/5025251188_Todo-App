@@ -23,7 +23,7 @@
   </nav>
 
   <span class="identitas">Halo, Mas Valdi</span>
-  <button type="button" id="tomboltema" class="tematoggle">Mode Gelap</button>
+  <button type="button" id="tomboltema" class="tematoggle" aria-pressed="false">Mode Gelap</button>
 </header>
 
 <div class="isi">
@@ -66,7 +66,7 @@
         <label for="ket">Keterangan</label>
         <textarea id="ket" rows="2" placeholder="catatan kalo ada"></textarea>
 
-        <button type="button" id="tambah">+ Tambah Tugas</button>
+        <button type="submit" id="tambah">+ Tambah Tugas</button>
       </form>
     </section>
 
@@ -80,7 +80,7 @@
 
   <aside>
     <h2>Detail Tugas</h2>
-
+    <p id="pesan" class="pesan" role="status"></p>
     <div class="kotak">
       <label for="j2">Judul</label>
       <input type="text" id="j2" placeholder="pilih Edit di salah satu tugas">
