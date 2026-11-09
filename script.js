@@ -28,7 +28,11 @@ function toko(mode) {
 }
 
 function rekam(tugas) {
-  toko("readwrite").put(tugas);
+  const simpanan = toko("readwrite").put(tugas);
+
+  simpanan.onerror = function () {
+    tulispesan("Tugas gagal disimpan ke database.");
+  };
 }
 
 const permintaan = indexedDB.open("tododb", 1);
@@ -201,7 +205,11 @@ function isidetail(tugas) {
 }
 
 function buang(id) {
-  toko("readwrite").delete(id);
+  const hapusan = toko("readwrite").delete(id);
+
+  hapusan.onerror = function () {
+    tulispesan("Tugas gagal dihapus dari database.");
+  };
 
   const sisa = [];
   for (let i = 0; i < daftar.length; i++) {
@@ -226,7 +234,7 @@ document.getElementById("tambah").addEventListener("click", function () {
   const judul = document.getElementById("judul").value;
 
   if (judul === "") {
-    alert("Judul tugasnya diisi dulu");
+    tulispesan("Judul tugasnya diisi dulu");
     return;
   }
 
@@ -259,7 +267,7 @@ document.getElementById("tambah").addEventListener("click", function () {
 
 document.getElementById("simpan").addEventListener("click", function () {
   if (idedit === 0) {
-    alert("Pilih Edit di salah satu tugas dulu");
+    tulispesan("Pilih Edit di salah satu tugas dulu.");
     return;
   }
 
@@ -279,7 +287,7 @@ document.getElementById("simpan").addEventListener("click", function () {
 
 document.getElementById("hapusdetail").addEventListener("click", function () {
   if (idedit === 0) {
-    alert("Pilih Edit di salah satu tugas dulu");
+    tulispesan("Pilih Edit di salah satu tugas dulu.");
     return;
   }
   buang(idedit);
@@ -306,8 +314,20 @@ function kirimnotif(tugas) {
   if (Notification.permission !== "granted") {
     return;
   }
-  const judul = "Tugas baru ditambahkan";
-  const isi = { body: tugas.judul + " akan diingatkan jam " + tugas.jam };
+
+  const judul = "Pengingat tugas";
+  const isi = { body: tugas.judul };
+  const waktu = new Date(tugas.tanggal + "T" + tugas.jam);
+  const jeda = waktu.getTime() - Date.now();
+
+  if (jeda > 0) {
+    setTimeout(function () {
+      new Notification(judul, isi);
+    }, jeda);
+    tulispesan("Pengingat " + tugas.judul + " dipasang jam " + tugas.jam + ".");
+    return;
+  }
+
   new Notification(judul, isi);
 }
 
@@ -357,6 +377,14 @@ function ambilfoto() {
   fotobaru = kanvas.toDataURL("image/png");
   pratinjau.src = fotobaru;
   pratinjau.style.display = "block";
+
+  const jalur = aliran.getTracks();
+  for (let i = 0; i < jalur.length; i++) {
+    jalur[i].stop();
+  }
+  aliran = null;
+  videokamera.style.display = "none";
+
   tulispesan("Foto tugas berhasil diambil.");
 }
 
