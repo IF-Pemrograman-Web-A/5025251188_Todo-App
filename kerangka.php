@@ -20,13 +20,13 @@
   <nav aria-label="Menu utama">
     <a href="#">Dashboard</a>
     <a href="#">Semua Tugas</a>
-    <a href="#" class="aktif">Hari Ini</a>
+    <a href="#" class="aktif" aria-current="page">Hari Ini</a>
     <a href="#">Mendatang</a>
     <a href="#">Kategori</a>
   </nav>
 
   <span class="identitas">Halo, Mas Valdi</span>
-  <button type="button" id="tomboltema" class="tematoggle">Mode Gelap</button>
+  <button type="button" id="tomboltema" class="tematoggle" aria-pressed="false">Mode Gelap</button>
   <button type="button" id="install-button" class="tematoggle">Pasang Aplikasi</button>
 </header>
 
@@ -46,27 +46,16 @@
     <div class="kotak ringkasan">
       <h3>Ringkasan</h3>
       <div class="angka">
-        <?php
-        $sql = "SELECT * FROM tugas WHERE jenis='$jenis'";
-        $hasil = $conn->query($sql);
-        $total = $hasil->num_rows;
-
-        $sql = "SELECT * FROM tugas WHERE jenis='$jenis' AND selesai=1";
-        $hasil = $conn->query($sql);
-        $beres = $hasil->num_rows;
-
-        $belum = $total - $beres;
-        ?>
         <div>
-          <span class="besar"><?php echo $total; ?></span>
+          <span class="besar" id="jumlahtotal">0</span>
           <span class="kecil">Total</span>
         </div>
         <div>
-          <span class="besar"><?php echo $beres; ?></span>
+          <span class="besar" id="jumlahselesai">0</span>
           <span class="kecil">Selesai</span>
         </div>
         <div>
-          <span class="besar"><?php echo $belum; ?></span>
+          <span class="besar" id="jumlahbelum">0</span>
           <span class="kecil">Belum</span>
         </div>
       </div>
@@ -90,4 +79,3 @@
 
 </body>
 </html>
-<?php $conn->close(); ?>

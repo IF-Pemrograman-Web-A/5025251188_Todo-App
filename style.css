@@ -225,7 +225,7 @@ button {
   color: #0f7a53;
 }
 
-.teks b {
+.teks strong {
   display: block;
   font-size: 0.875rem;
 }
@@ -268,7 +268,7 @@ button {
   color: #1d4ed8;
 }
 
-.selesai b {
+.selesai strong {
   color: #8a94a6;
   text-decoration: line-through;
 }
@@ -502,10 +502,15 @@ a.aksibtn {
 }
 
 .centang {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
   color: #1d4ed8;
   font-size: 1.125rem;
   text-decoration: none;
   line-height: 1;
+  cursor: pointer;
 }
 
 body.gelap {
@@ -634,7 +639,7 @@ body.gelap .besar {
   color: #93c5fd;
 }
 
-body.gelap .selesai b {
+body.gelap .selesai strong {
   color: #7d8ba5;
 }
 

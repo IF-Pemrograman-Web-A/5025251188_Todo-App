@@ -4,7 +4,7 @@
     <li>
       <?php
       if ($jenis == "personal") {
-        echo "<a href='index.php' class='menuaktif'>Personal</a>";
+        echo "<a href='index.php' class='menuaktif' aria-current='page'>Personal</a>";
       } else {
         echo "<a href='index.php'>Personal</a>";
       }
@@ -13,7 +13,7 @@
     <li>
       <?php
       if ($jenis == "shared") {
-        echo "<a href='shared.php' class='menuaktif'>Shared</a>";
+        echo "<a href='shared.php' class='menuaktif' aria-current='page'>Shared</a>";
       } else {
         echo "<a href='shared.php'>Shared</a>";
       }
@@ -22,7 +22,7 @@
   </ul>
 
   <h2>Catatan Aktivitas</h2>
-  <pre class="logkotak"><?php
+  <pre class="logkotak" id="catatan"><?php
     if (file_exists($filelog)) {
       echo file_get_contents($filelog);
     } else {

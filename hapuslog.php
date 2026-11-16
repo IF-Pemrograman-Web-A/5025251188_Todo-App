@@ -9,6 +9,4 @@ if (file_exists($filelog)) {
 }
 
 echo "<a href='index.php'>Kembali ke daftar Personal</a>";
-
-$conn->close();
 ?>

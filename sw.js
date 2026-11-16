@@ -72,3 +72,8 @@ self.addEventListener("push", (event) => {
 
   event.waitUntil(tampilkannotif());
 });
+
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  event.waitUntil(clients.openWindow("./index.php"));
+});

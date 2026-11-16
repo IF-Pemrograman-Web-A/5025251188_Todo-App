@@ -27,3 +27,15 @@ INSERT INTO tugas (judul, kategori, tanggal, jam, prioritas, ket, foto, selesai,
 ('Siapkan materi sharing session', 'Kampus', '2026-10-24', '13:00', 'Sedang', 'Slide dibagi ke semua anggota H-1', '', 0, 'shared'),
 ('Rekap stok barang Centa Ultra', 'Bisnis', '2026-10-25', '10:00', 'Tinggi', 'Cek sisa stok sebelum restock', '', 0, 'shared'),
 ('Bikin notulen rapat minggu lalu', 'Kampus', '2026-10-17', '20:00', 'Rendah', 'Sudah diunggah ke drive bersama', '', 1, 'shared');
+
+DROP TABLE IF EXISTS apikey;
+
+CREATE TABLE apikey (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  nama VARCHAR(64) NOT NULL,
+  kunci VARCHAR(64) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+INSERT INTO apikey (nama, kunci) VALUES
+('MYTODO Web', 'mytodo-5025251188');

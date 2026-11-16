@@ -4,18 +4,18 @@
 
   <section class="formbaru">
     <h2>Tambah Tugas Baru</h2>
-    <form method="post" action="tambah.php" id="formtugas">
-      <input type="hidden" name="jenis" value="<?php echo $jenis; ?>">
-      <input type="hidden" name="foto" id="foto" value="">
+    <form id="formtugas">
+      <input type="hidden" id="jenis" value="<?php echo $jenis; ?>">
+      <input type="hidden" id="foto" value="">
 
       <div class="baris">
         <div>
           <label for="judul">Judul</label>
-          <input type="text" id="judul" name="judul" placeholder="mau ngapain hari ini?">
+          <input type="text" id="judul" placeholder="mau ngapain hari ini?">
         </div>
         <div>
           <label for="kategori">Kategori</label>
-          <select id="kategori" name="kategori">
+          <select id="kategori">
             <option>Kampus</option>
             <option>Bisnis</option>
             <option>Pribadi</option>
@@ -26,11 +26,11 @@
       <div class="baris">
         <div>
           <label for="tgl">Tanggal</label>
-          <input type="date" id="tgl" name="tanggal">
+          <input type="date" id="tgl">
         </div>
         <div>
           <label for="prioritas">Prioritas</label>
-          <select id="prioritas" name="prioritas">
+          <select id="prioritas">
             <option>Rendah</option>
             <option>Sedang</option>
             <option>Tinggi</option>
@@ -39,10 +39,10 @@
       </div>
 
       <label for="jam">Waktu pengingat</label>
-      <input type="time" id="jam" name="jam">
+      <input type="time" id="jam">
 
       <label for="ket">Keterangan</label>
-      <textarea id="ket" name="ket" rows="2" placeholder="catatan kalo ada"></textarea>
+      <textarea id="ket" rows="2" placeholder="catatan kalo ada"></textarea>
 
       <div class="kamera">
         <h3>Foto tugas</h3>
@@ -62,35 +62,9 @@
   </section>
 
   <h2>Belum Selesai</h2>
-  <ul class="daftar">
-    <?php
-    $sql = "SELECT * FROM tugas WHERE jenis='$jenis' AND selesai=0";
-    $hasil = $conn->query($sql);
-
-    if ($hasil->num_rows > 0) {
-      while ($baris = $hasil->fetch_assoc()) {
-        include "kartu.php";
-      }
-    } else {
-      echo "<li class='kosong'>Belum ada tugas di sini</li>";
-    }
-    ?>
-  </ul>
+  <ul class="daftar" id="belum"></ul>
 
   <h2>Sudah Selesai</h2>
-  <ul class="daftar selesai">
-    <?php
-    $sql = "SELECT * FROM tugas WHERE jenis='$jenis' AND selesai=1";
-    $hasil = $conn->query($sql);
-
-    if ($hasil->num_rows > 0) {
-      while ($baris = $hasil->fetch_assoc()) {
-        include "kartu.php";
-      }
-    } else {
-      echo "<li class='kosong'>Belum ada yang selesai</li>";
-    }
-    ?>
-  </ul>
+  <ul class="daftar selesai" id="sudah"></ul>
 
 </main>
